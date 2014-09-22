@@ -92,7 +92,27 @@ namespace Lazarus {
                 }
             }
             
-//#ifdef SHOW_HOG
+            outVec.clear();
+            for (int x=0; x<nRows-2*patch_width; x+=patch_width) {
+                for (int y=0; y<nCols-2*patch_width; y+=patch_width) {
+                    int i=x/patch_width;
+                    int j=y/patch_width;
+                    HOG currentBlock;
+                    currentBlock.insert(currentBlock.end(), newImg[i][j].begin(),newImg[i][j].end());
+                    currentBlock.insert(currentBlock.end(), newImg[i][j+1].begin(),newImg[i][j+1].end());
+                    currentBlock.insert(currentBlock.end(), newImg[i+1][j].begin(),newImg[i+1][j].end());
+                    currentBlock.insert(currentBlock.end(), newImg[i+1][j+1].begin(),newImg[i+1][j+1].end());
+                    
+                    NormVec(currentBlock);
+                    
+                    outVec.insert(outVec.end(), currentBlock.begin(),currentBlock.end());
+                    
+                }
+            }
+            
+            
+            
+#ifdef SHOW_HOG
      
             Mat show(nRows,nCols,CV_8UC1);
             show.setTo(Scalar(0.0));
@@ -120,7 +140,7 @@ namespace Lazarus {
             
             imshow("RESULT",show);
             waitKey(0);
-//#endif
+#endif
             
             
             
