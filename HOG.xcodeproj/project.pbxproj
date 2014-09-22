@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B42CF1E19CFCCE80023034A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B42CF1D19CFCCE80023034A /* main.cpp */; };
 		0B42CF2019CFCCE80023034A /* HOG.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0B42CF1F19CFCCE80023034A /* HOG.1 */; };
+		0B42CF2819CFCCF40023034A /* hog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0B42CF2619CFCCF40023034A /* hog.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		0B42CF1A19CFCCE80023034A /* HOG */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HOG; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B42CF1D19CFCCE80023034A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		0B42CF1F19CFCCE80023034A /* HOG.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = HOG.1; sourceTree = "<group>"; };
+		0B42CF2619CFCCF40023034A /* hog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hog.cpp; sourceTree = "<group>"; };
+		0B42CF2719CFCCF40023034A /* hog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hog.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +47,8 @@
 		0B42CF1119CFCCE80023034A = {
 			isa = PBXGroup;
 			children = (
+				0B42CF2619CFCCF40023034A /* hog.cpp */,
+				0B42CF2719CFCCF40023034A /* hog.h */,
 				0B42CF1C19CFCCE80023034A /* HOG */,
 				0B42CF1B19CFCCE80023034A /* Products */,
 			);
@@ -117,6 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B42CF2819CFCCF40023034A /* hog.cpp in Sources */,
 				0B42CF1E19CFCCE80023034A /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +201,17 @@
 		0B42CF2419CFCCE80023034A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lopencv_core",
+					"-lopencv_highgui",
+					"-lopencv_imgproc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -202,6 +219,17 @@
 		0B42CF2519CFCCE80023034A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = (
+					"-lopencv_core",
+					"-lopencv_highgui",
+					"-lopencv_imgproc",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
